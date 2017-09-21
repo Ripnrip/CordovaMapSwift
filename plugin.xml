@@ -15,5 +15,15 @@
   <source-file src="src/ios/CordovaMapSwift.swift" />
 </platform>
 
+<!-- For WKWebView -->
+<framework src="WebKit.framework" />
+
+<!-- For MapKit -->
+<framework src="MapKit.framework" />
+
+<!-- For Swift Dependency -->
+<dependency id="cordova-plugin-add-swift-support" version="1.6.1"/>
+
+
 
 </plugin>
