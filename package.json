@@ -1,0 +1,25 @@
+{
+  "name": "CordovaMapSwift",
+  "version": "0.0.1",
+  "description": "packageJSON",
+  "cordova": {
+    "id": "com-ripnrip-plugins-CordovaMapSwift",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ripnrip/CordovaMapSwift.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Gurinder Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ripnrip/CordovaMapSwift/issues"
+  },
+  "homepage": "https://github.com/Ripnrip/CordovaMapSwift#readme"
+}
