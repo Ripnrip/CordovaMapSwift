@@ -6,8 +6,7 @@
 import MapKit
 import UIKit
 
-@objc(CordovaMapSwift) class CordovaMapSwift : CDVPlugin {
-    
+@objc(CordovaMapSwift) class CordovaMapSwift : CDVPlugin,MKMapViewDelegate {
     
     
     @objc(echo:)
@@ -29,12 +28,14 @@ import UIKit
                 animated: true,
                 completion: nil
             )
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 toastController.dismiss(
                     animated: true,
                     completion: nil
                 )
             }
+            showMap(command: command)
             pluginResult = CDVPluginResult(
                 status: CDVCommandStatus_OK,
                 messageAs: msg
@@ -46,8 +47,7 @@ import UIKit
             callbackId: command.callbackId
         )
     }
-    let map = MKMapView(frame: CGRect(x: 0, y: 30, width: 300, height: 300))
-
+    
     @objc(showMap:)
     func showMap(command: CDVInvokedUrlCommand){
         // add mapview to webview --> webView.addSubView(map)
@@ -56,7 +56,19 @@ import UIKit
         )
         let msg = command.arguments[0] as? String ?? ""
         
-        webView.addSubview(map)
+        
+        let map = MKMapView()
+        
+        map.frame = CGRect(x: 0, y: 12, width: 300, height: 300)
+        map.mapType = MKMapType.standard
+        map.isZoomEnabled = true
+        map.isScrollEnabled = true
+        
+        DispatchQueue.main.async {
+            self.viewController.view.addSubview(map)
+            print("test test test ")
+        }
+        
         pluginResult = CDVPluginResult(
             status: CDVCommandStatus_OK,
             messageAs: msg
@@ -68,27 +80,6 @@ import UIKit
         
     }
     
-    @objc(hideMap:)
-    func hideMap(command: CDVInvokedUrlCommand){
-        // hide mapview to webview --> map.removeFromSuperView()
-        var pluginResult = CDVPluginResult(
-            status: CDVCommandStatus_ERROR
-        )
-        let msg = command.arguments[0] as? String ?? ""
-        
-        map.removeFromSuperview()
-        
-        pluginResult = CDVPluginResult(
-            status: CDVCommandStatus_OK,
-            messageAs: msg
-        )
-        
-        self.commandDelegate!.send(
-            pluginResult,
-            callbackId: command.callbackId
-        )
-        
-    }
     
     
 }
