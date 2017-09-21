@@ -3,8 +3,14 @@
 //
 //  Created by Admin on 9/21/17.
 //
+import MapKit
+import UIKit
 
 @objc(CordovaMapSwift) class CordovaMapSwift : CDVPlugin {
+    
+    let map = MKMapView(frame: CGRect(x: 0, y: 30, width: 300, height: 300))
+    
+    
     @objc(echo:)
     func echo(command: CDVInvokedUrlCommand) {
         var pluginResult = CDVPluginResult(
@@ -42,23 +48,48 @@
         )
     }
     
-    @objc(showMap)
+    @objc(showMap:)
     func showMap(command: CDVInvokedUrlCommand){
-    // add mapview to webview --> webView.addSubView(map)
+        // add mapview to webview --> webView.addSubView(map)
         var pluginResult = CDVPluginResult(
             status: CDVCommandStatus_ERROR
+        )
+        let msg = command.arguments[0] as? String ?? ""
+        
+        webView.addSubview(map)
+        pluginResult = CDVPluginResult(
+            status: CDVCommandStatus_OK,
+            messageAs: msg
+        )
+        self.commandDelegate!.send(
+            pluginResult,
+            callbackId: command.callbackId
         )
         
     }
     
-    @objc(hideMap)
+    @objc(hideMap:)
     func hideMap(command: CDVInvokedUrlCommand){
-    // hide mapview to webview --> map.removeFromSuperView()
+        // hide mapview to webview --> map.removeFromSuperView()
         var pluginResult = CDVPluginResult(
             status: CDVCommandStatus_ERROR
         )
-
+        let msg = command.arguments[0] as? String ?? ""
+        
+        map.removeFromSuperview()
+        
+        pluginResult = CDVPluginResult(
+            status: CDVCommandStatus_OK,
+            messageAs: msg
+        )
+        
+        self.commandDelegate!.send(
+            pluginResult,
+            callbackId: command.callbackId
+        )
+        
     }
     
     
 }
+

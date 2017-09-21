@@ -17,11 +17,11 @@ exports.echojs = function(arg0, success, error) {
 };
 
 exports.showMap = function(arg0, success, error) {
-    exec(success, error,  "CordovaMapSwift", "show", [arg0]);
+    exec(success, error,  "CordovaMapSwift", 'showMap', [arg0]);
 };
 
 exports.showMap = function(arg0, success, error) {
-    exec(success, error,  "CordovaMapSwift", "hide", [arg0]);
+    exec(success, error,  "CordovaMapSwift", 'hideMap', [arg0]);
 };  
 
 
