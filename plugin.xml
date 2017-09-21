@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com-ripnrip-plugins-CordovaMapSwift" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>CordovaMapSwift</name>
+    <js-module name="CordovaMapSwift" src="www/CordovaMapSwift.js">
+        <clobbers target="cordovamapswift" />
+    </js-module>
+
+<!-- iOS -->
+    <platform name="ios">
+  <config-file target="config.xml" parent="/*">
+    <feature name="CordovaMapSwift">
+      <param name="ios-package" value="CordovaMapSwift" />
+    </feature>
+  </config-file>
+  <source-file src="src/ios/CordovaMapSwift.swift" />
+</platform>
+
+
+</plugin>
