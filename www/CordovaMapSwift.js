@@ -20,9 +20,6 @@ exports.showMap = function(arg0, success, error) {
     exec(success, error,  "CordovaMapSwift", 'showMap', [arg0]);
 };
 
-exports.showMap = function(arg0, success, error) {
-    exec(success, error,  "CordovaMapSwift", 'hideMap', [arg0]);
-};  
 
 
 
