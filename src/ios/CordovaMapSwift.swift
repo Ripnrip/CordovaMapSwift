@@ -8,7 +8,6 @@ import UIKit
 
 @objc(CordovaMapSwift) class CordovaMapSwift : CDVPlugin {
     
-    let map = MKMapView(frame: CGRect(x: 0, y: 30, width: 300, height: 300))
     
     
     @objc(echo:)
@@ -47,7 +46,8 @@ import UIKit
             callbackId: command.callbackId
         )
     }
-    
+    let map = MKMapView(frame: CGRect(x: 0, y: 30, width: 300, height: 300))
+
     @objc(showMap:)
     func showMap(command: CDVInvokedUrlCommand){
         // add mapview to webview --> webView.addSubView(map)
