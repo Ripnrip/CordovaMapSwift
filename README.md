@@ -13,6 +13,6 @@ Uses a Cordova plugin to add a mapkit on a webview using swift
 1. https://cordova.apache.org/docs/en/latest/guide/hybrid/plugins/index.html
 2. https://moduscreate.com/writing-a-cordova-plugin-in-swift-3-for-ios/ 
 
-![Alt text](/1.png?raw=true "Image")
+![Alt text](/2.png?raw=true "Image")
 
 
