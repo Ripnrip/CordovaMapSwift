@@ -21,6 +21,9 @@
 <!-- For MapKit -->
 <framework src="MapKit.framework" />
 
+<!-- For UIKit -->
+<framework src="UIKit.framework" />
+    
 <!-- For Swift Dependency -->
 <dependency id="cordova-plugin-add-swift-support" version="1.6.1"/>
 
